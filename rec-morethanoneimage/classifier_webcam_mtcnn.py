@@ -25,18 +25,18 @@ import openface
 
 
 fileDir = os.path.dirname(os.path.realpath(__file__))
-modelDir = os.path.join(fileDir, '..' ,  'models')
-dlibModelDir = os.path.join(modelDir, 'dlib')
-openfaceModelDir = os.path.join(modelDir, 'openface')
+modelDir = os.path.join('/usr/src/tensorrt/data/')
+dlibModelDir = os.path.join(modelDir, 'recmodels')
+openfaceModelDir = os.path.join(modelDir, 'recmodels')
 
 
 
 ### Loading Detection Models
 def loadcaffemodel():
 	caffe.set_mode_gpu()
-	PNet = caffe.Net("detmodels/det1.prototxt", "detmodels/det1.caffemodel", caffe.TEST)
-	RNet = caffe.Net("detmodels/det2.prototxt", "detmodels/det2.caffemodel", caffe.TEST)
-	ONet = caffe.Net("detmodels/det3.prototxt", "detmodels/det3.caffemodel", caffe.TEST)
+	PNet = caffe.Net("/usr/src/tensorrt/data/detmodels/d1.prototxt", "/usr/src/tensorrt/data/detmodels/d1.caffemodel", caffe.TEST)
+	RNet = caffe.Net("/usr/src/tensorrt/data/detmodels/d2.prototxt", "/usr/src/tensorrt/data/detmodels/d2.caffemodel", caffe.TEST)
+	ONet = caffe.Net("/usr/src/tensorrt/data/detmodels/d3.prototxt", "/usr/src/tensorrt/data/detmodels/d3.caffemodel", caffe.TEST)
 	return PNet, RNet, ONet
 
 #### Camera configuration
@@ -169,14 +169,14 @@ if __name__ == '__main__':
         help="Path to dlib's face predictor.",
         default=os.path.join(
             dlibModelDir,
-            "shape_predictor_68_face_landmarks.dat"))
+            "sh_pre.dat"))
     parser.add_argument(
         '--networkModel',
         type=str,
         help="Path to Torch network model.",
         default=os.path.join(
             openfaceModelDir,
-            'nn4.small2.v1.t7'))
+            'n4.s2.v1.t7'))
     parser.add_argument('--imgDim', type=int,
                         help="Default image dimension.", default=96)
     parser.add_argument(

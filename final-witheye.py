@@ -125,12 +125,12 @@ for path in paths: #TODO
 	known_encodings.append([paths[0], ref_face_encoding])
 	
 '''
-paths =["/home/nvidia/ni/samples/MA/majid.jpg"]
+paths =[sys.argv[1]]
 known_encodings=[]
 for path in paths: #TODO 
 	#img_test = scipy.misc.imread(path, mode='RGB')
 	img = cv2.resize(cv2.imread(path),(640,480))
-	ref_face_encoding, landmarks=testfaces.encodeTestImage(img, PNet, RNet, ONet, threshold ,factor ,pose_predictor, face_encoder, face_aligner, minsize)
+	ref_face_encoding = testfaces.encodeTestImage(img, PNet, RNet, ONet, threshold ,factor ,pose_predictor, face_encoder, face_aligner, minsize)
 	#for alignedFace in alignedFaces:
 		# Save the aligned image to a file
 		#cv2.imwrite("aligned_face_{}.jpg".format(i), alignedFace)
