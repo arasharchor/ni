@@ -54,9 +54,9 @@ COUNTER = 0
 ### Loading Detection Models
 def loadcaffemodel():
 	caffe.set_mode_gpu()
-	PNet = caffe.Net("detmodels/d1.prototxt", "detmodels/d1.caffemodel", caffe.TEST)
-	RNet = caffe.Net("detmodels/d2.prototxt", "detmodels/d2.caffemodel", caffe.TEST)
-	ONet = caffe.Net("detmodels/d3.prototxt", "detmodels/d3.caffemodel", caffe.TEST)
+	PNet = caffe.Net("/usr/src/tensorrt/data/detmodels/d1.prototxt", "/usr/src/tensorrt/data/detmodels/d1.caffemodel", caffe.TEST)
+	RNet = caffe.Net("/usr/src/tensorrt/data/detmodels/d2.prototxt", "/usr/src/tensorrt/data/detmodels/d2.caffemodel", caffe.TEST)
+	ONet = caffe.Net("/usr/src/tensorrt/data/detmodels/d3.prototxt", "/usr/src/tensorrt/data/detmodels/d3.caffemodel", caffe.TEST)
 	return PNet, RNet, ONet
 
 
@@ -64,11 +64,11 @@ def loadcaffemodel():
 
 #### Loading Recognition Models
 
-predictor_model = "recmodels/sh_pre.dat"
+predictor_model = "/usr/src/tensorrt/data/recmodels/sh_pre.dat"
 
 pose_predictor = dlib.shape_predictor(predictor_model)
 
-face_encoder = dlib.face_recognition_model_v1("recmodels/fac_rec_model.dat")
+face_encoder = dlib.face_recognition_model_v1("/usr/src/tensorrt/data/recmodels/fac_rec_model.dat")
 
 face_aligner = openface.AlignDlib(predictor_model)
 

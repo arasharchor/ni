@@ -4,11 +4,11 @@ source ~/.profile
 workon cv3.3-py2.7-facerec
 
 
-./align-dlib.py ~/NovinIlia/ni/training-images/ align outerEyesAndNose ~/NovinIlia/ni/rec-morethanoneimage/aligned-images/ --size 96
+python /home/nvidia/ni/rec-morethanoneimage/align-dlib.py /home/nvidia/NovinIlia/ni/training-images/ align outerEyesAndNose /home/nvidia/NovinIlia/ni/aligned-images/ --size 96
 
-./lua/main.lua -outDir ~/NovinIlia/ni/rec-morethanoneimage/generated-embeddings/ -data ~/NovinIlia/ni/rec-morethanoneimage/aligned-images/
+#cd /home/nvidia/ni/rec-morethanoneimage/lua/
+../../ni/rec-morethanoneimage/lua/main.lua -outDir /home/nvidia/NovinIlia/ni/generated-embeddings/ -data  /home/nvidia/NovinIlia/ni/aligned-images/
 
-./classifier.py train ~/NovinIlia/ni/rec-morethanoneimage/generated-embeddings/
+python /home/nvidia/ni/rec-morethanoneimage/classifier.py train /home/nvidia/NovinIlia/ni/generated-embeddings/
 
-
-./classifier_webcam_mtcnn.py ~/NovinIlia/ni/rec-morethanoneimage/generated-embeddings/classifier.pkl
+python /home/nvidia/ni/rec-morethanoneimage/classifier_webcam_mtcnn.py /home/nvidia/NovinIlia/ni/generated-embeddings/classifier.pkl

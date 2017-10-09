@@ -13,12 +13,12 @@ import openface
 # Compute the 128D vector that describes the face in img identified by shape.
 #face_descriptor = face_encoder.compute_face_descriptor(img, shape)
 
-predictor_model = "recmodels/sh_pre.dat"
+predictor_model = "/usr/src/tensorrt/data/recmodels/sh_pre.dat"
 
 pose_predictor = dlib.shape_predictor(predictor_model)
 
 
-face_encoder = dlib.face_recognition_model_v1("recmodels/fac_rec_model.dat")
+face_encoder = dlib.face_recognition_model_v1("/usr/src/tensorrt/data/recmodels/fac_rec_model.dat")
 
 #descriptors.append(face_descriptor)
 #images.append((img, shape))
