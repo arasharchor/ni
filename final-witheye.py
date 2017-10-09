@@ -15,7 +15,7 @@ import openface
 from glob import glob
 
 ####
-from deepgaze.face_landmark_detection import faceLandmarkDetection
+# from deepgaze.face_landmark_detection import faceLandmarkDetection
 
 
 ####
